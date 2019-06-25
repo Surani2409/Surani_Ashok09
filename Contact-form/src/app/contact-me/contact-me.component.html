@@ -1,0 +1,71 @@
+<h4><b><i>Contact Form with MaterialUI Angular</i></b></h4>
+
+<form [formGroup]="contactform" (ngSubmit)="onSubmit()">
+
+ <mat-form-field>
+      <mat-label>FullName</mat-label>
+  <input formControlName="fullName" matInput placeholder="Enter the Fullname">
+  <mat-error *ngIf="contactform.hasError('fullNameIsForbidden', 'fullName')"> Can't be empty!</mat-error>
+  <mat-error *ngIf="contactform.hasError('required', fullName)"></mat-error> 
+</mat-form-field><br><br> 
+
+<mat-form-field>
+    <mat-label>EmailID</mat-label>
+      <input formControlName="email" matInput placeholder="Enter the your EmailID">
+      <mat-error *ngIf="contactform.hasError('emailIsForbidden', 'email')"> email is required</mat-error>
+</mat-form-field><br><br>
+
+<mat-form-field>
+    <mat-label>password</mat-label>
+      <input formControlName="password" matInput placeholder="Enter the your Password">
+        <mat-error *ngIf="contactform.hasError('passwordIsForbidden', 'password')"> password is required</mat-error>
+</mat-form-field><br><br>
+
+<mat-form-field>
+    <mat-label>MobileNumber</mat-label>
+    <input formControlName="MobileNumber" matInput placeholder="Enter the your MobileNumber">
+    <mat-error *ngIf="contactform.hasError('MobileNumberIsForbidden', 'MobileNumber')"> MobileNumber is required</mat-error>
+</mat-form-field>
+<br><br>
+
+<mat-form-field>
+    <!-- <mat-label>Address</mat-label> -->
+    <textarea matInput placeholder="Enter the your Address" formControlName="Address"></textarea>
+    <mat-error *ngIf="contactform.hasError('AddressIsForbidden', 'Address')"> Address is required</mat-error>  
+  </mat-form-field><br><br>
+
+<mat-form-field>
+  <select matNativeControl required  formControlName="Country">
+    <option value="Afghanistan">Afghanistan</option>
+    <option value="Albania">Albania</option>
+    <option value="Algeria">Algeria</option>
+    <option value="Andorra">Andorra</option>
+    <option value="Angola">Angola</option>
+    <option value="Argentina">Argentina</option>
+    <option value="Armenia">Armenia</option>
+    <option value="Antigua">Antigua</option>
+  </select>
+  <mat-error *ngIf="contactform.hasError('CountryIsForbidden', 'Country')"> Country is required</mat-error>
+</mat-form-field><br><br>
+
+
+
+
+<button type="submit" mat-raised-button color="primary">submit</button>
+
+</form>
+
+
+
+<!-- [ngClass]="{ 'is-invalid': Submit && f.email.errors }" 
+<div *ngIf="Submit && f.MobileNumber.errors">
+      <div *ngIf="f.MobileNumber.errors.required">Password is required</div></div>
+
+
+      ng add @angular/material
+      
+      npm install -g @angular/cli
+      ng new project 
+      ng g c task
+      ng 
+-->
